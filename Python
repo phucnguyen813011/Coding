@@ -1,0 +1,26 @@
+import socket
+
+def get_ip_address(domain):
+  try:
+    # Use gethostbyname to resolve domain name to IP address
+    ip = socket.gethostbyname(domain)
+    return ip
+  except socket.gaierror as e:
+    # Handle DNS resolution error
+    print(f""Error resolving domain name '{domain}': {e}"")
+    return None
+
+
+
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+
+    domain = input(""Enter domain:"")
+    ip_address = get_ip_address(domain)
+
+    if ip_address:
+        print(f""The IP address for {domain} is: {ip_address}"")
+    else:
+        print(f""Unable to resolve domain name: {domain}"")"
